@@ -109,9 +109,7 @@ class facebookController extends WidgetController {
 class FBConnector {
 
 
-  //constructor() {
-//	  super();
- // }
+
 
 	
  statusChange(response) {
@@ -160,5 +158,5 @@ testAPI() {
      js = d.createElement(s); js.id = id;
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
-   (document, 'script', 'facebook-jssdk'));
-  }
+   (document, 'script', 'facebook-jssdk');
+  });
