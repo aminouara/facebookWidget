@@ -10,10 +10,10 @@ class Main {
 		this._name = "dash";
 	}
 	
-	load() {
-		let widget = new facebookWidget(1, this);
-		document.body.appendChild(widget.mvc.view.stage);
-	}
+	//load() {
+	//	let widget = new facebookWidget(1, this);
+		//document.body.appendChild(widget.mvc.view.stage);
+	//}
 	
 	async get(url) {
 		return await Comm.urlrequest("https://node.nicopr.fr/" + this._name + url, {});
