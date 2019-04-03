@@ -81,7 +81,7 @@ class facebookController extends WidgetController {
   }
 
   
-this.FBConnector.load();
+
 		
 	}
 	
