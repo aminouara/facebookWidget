@@ -109,9 +109,9 @@ class facebookController extends WidgetController {
 class FBConnector {
 
 
-  constructor() {
-	  super();
-  }
+  //constructor() {
+//	  super();
+ // }
 
 	
  statusChange(response) {
