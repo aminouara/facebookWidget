@@ -110,11 +110,10 @@ class FBConnector {
 
 
   constructor() {
-
-     super();
-
+	  super();
   }
 
+	
  statusChange(response) {
    if(response.status ==='connected'){
         this.testAPI();
