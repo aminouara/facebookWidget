@@ -76,14 +76,14 @@ class facebookController extends WidgetController {
 		super.setUp();
 
 		this.facebook = new FBConnector();
-      this.facebook.start();
+                 this.facebook.start();
 
-  }
+        }
 
   
 
 		
-	}
+
 	
 	onMessage(data) {
 		trace("received socket msg", data);
@@ -103,7 +103,7 @@ class facebookController extends WidgetController {
 	//	this.mvc.view.update(article.textContent, article.getAttribute("href"));
 	//}
 	
-//}
+}
 
 
 class FBConnector {
