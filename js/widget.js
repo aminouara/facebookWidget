@@ -31,6 +31,12 @@ class facebookWidget extends Widget {
 	async ready() {
 
 		super.ready();
+		FB.getLoginStatus(function(response) {
+    			if (response.status === 'connected') {
+        			var accessToken = response.authResponse.accessToken;
+       				 console.log(acessToken);
+                         } 
+    		} ); 
 
 	}
 	
@@ -54,13 +60,7 @@ class facebookModel extends WidgetModel {
 	}
 
 
-	 FB.getLoginStatus(function(response) {
-      			if (response.status === 'connected') {
-        		 var accessToken = response.authResponse.accessToken;
-			console.log(accessToken);
-        		} 
-    	}); 
-   
+	 
     //FB.api('/me/fields=id,name,posts,friends','get', { message: body }, function(response) {
 	 //  if (!response || response.error) {
 	   //   alert('Error occured');
