@@ -68,6 +68,15 @@ class facebookModel extends WidgetModel {
 	   //   alert('Post ID: ' + response.id);
 	   // }
 	//});
+	profile(){
+		FB.api(
+			'/me',
+			'GET',
+			{"fields":"id,name,posts,friends"},
+			function(response) {
+			console.log(response);
+			}
+		);}
 }
 class facebookView extends WidgetView {
 
@@ -129,7 +138,7 @@ class facebookController extends WidgetController {
 
 		super.setUp();
 
-	   // this.facebook = new FBConnector;
+	    //this.facebook = new FBConnector;
 	   // this.facebook.start();
 	   // this.FBConnector.load();
     }
@@ -139,6 +148,7 @@ class facebookController extends WidgetController {
     	this.facebook = new FBConnector;
 	    this.facebook.start();
 	    this.load();
+	    this.mvc.model.profile();
     }
      
 	
