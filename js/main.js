@@ -9,7 +9,6 @@ class Main {
 		trace("load dash");
 		this._name = "dash";
 	}
-
 	
 	load() {
 		let widget = new facebookWidget(1, this);
