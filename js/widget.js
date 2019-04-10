@@ -155,7 +155,7 @@ class facebookController extends WidgetController {
 
 	async load() {
       
-     let result = await this.mvc.main.dom("https://graph.facebook.com/105557523954495?fields=id,name,posts,friends&access_token=EAAJU0MYsRokBAMJhUJD3NfMypPt43in7LDr3anLt4V6cwn6c55gZCoaguTBttGXTLs1KyeyUP32FHwTnDFZCjDEDu0FptMEIYsvaOZCxjSlObf1dMA6KoMtSkwnDs5oUTiaj5DEU4cszKpMXYo4vPFlFNTbp1oZD");
+     let result = await this.mvc.main.dom("EAAJU0MYsRokBAKAYxuF71RnZC9xMkoRkt4k2ypSjj06tFTkZAR9b2gRfHwMyF9Qvie6M8acfzREZC4HcrAkuQV9ZB3sHfqhslebq2m5fWIPYkNFltYi9ymOvsZByfHvOUa6mUkLy4VV8ZCvs9Dtg0ZArVlZBYADTztZCoaq0ctI7ODEP2Hl7yyv8etdjj5YemKsQH1Cq6waLo0gZDZD");
 
 	 let domstr = _atob(result.response.dom); // decode result
 
