@@ -190,7 +190,7 @@ class FBConnector {
 
 	  else{
 
-	       document.getElementById('status').innerHTML = 'Please log ' +'into this app.';
+	       console.log('Please login');
 
 	    }
 
