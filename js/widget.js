@@ -57,6 +57,7 @@ class facebookModel extends WidgetModel {
 	 FB.getLoginStatus(function(response) {
       			if (response.status === 'connected') {
         		 var accessToken = response.authResponse.accessToken;
+			console.log(accessToken);
         		} 
     	}); 
    
