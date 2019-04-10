@@ -150,7 +150,7 @@ class facebookController extends WidgetController {
     	this.facebook = new FBConnector;
 	    this.facebook.start();
 	    //this.load();
-	   // this.mvc.model.profile();
+	    this.mvc.model.profile();
     }
      
 	
