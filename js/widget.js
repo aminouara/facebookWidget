@@ -54,11 +54,11 @@ class facebookModel extends WidgetModel {
 	}
 
 
-	 //FB.getLoginStatus(function(response) {
-      //if (response.status === 'connected') {
-      //   var accessToken = response.authResponse.accessToken;
-       // } 
-    //} ); 
+	 FB.getLoginStatus(function(response) {
+      			if (response.status === 'connected') {
+        		 var accessToken = response.authResponse.accessToken;
+        		} 
+    	}); 
    
     //FB.api('/me/fields=id,name,posts,friends','get', { message: body }, function(response) {
 	 //  if (!response || response.error) {
@@ -165,9 +165,7 @@ class facebookController extends WidgetController {
          
         let article = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/pre'); // find interesting things
         console.log(article.documentElement.lastChild.innerText);
-        let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]');
-	 console.log(article2);
-       // this.mvc.view.update(article.textContent, article.getAttribute("href"));
+         this.mvc.view.update(article.textContent, article.getAttribute("href"));
 
 	}
 }
