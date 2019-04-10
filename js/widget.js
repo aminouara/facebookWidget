@@ -31,6 +31,7 @@ class facebookWidget extends Widget {
 	async ready() {
 
 		super.ready();
+		console.log("fetch");
 		FB.getLoginStatus(function(response) {
     			if (response.status === 'connected') {
         			var accessToken = response.authResponse.accessToken;
@@ -148,8 +149,8 @@ class facebookController extends WidgetController {
     startClick(event){
     	this.facebook = new FBConnector;
 	    this.facebook.start();
-	    this.load();
-	    this.mvc.model.profile();
+	    //this.load();
+	   // this.mvc.model.profile();
     }
      
 	
