@@ -228,7 +228,7 @@ class FBConnector {
   
           console.log('Successful login for: ' + response.name);
 
-          consol.log('Thanks for logging in');
+          console.log('Thanks for logging in');
         });
     }
 }
