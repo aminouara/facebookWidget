@@ -154,9 +154,9 @@ class facebookController extends WidgetController {
 	 let dom = parser.parseFromString(domstr, "text/html"); // inject result
          
         let article = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/pre'); // find interesting things
-        console.log(article.innerHtml);
+        console.log(article);
         let article2 = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]');
-	 console.log(article2.innerHtml);
+	 console.log(article2);
        // this.mvc.view.update(article.textContent, article.getAttribute("href"));
 
 	}
