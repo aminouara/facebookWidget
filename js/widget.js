@@ -36,7 +36,7 @@ class facebookWidget extends Widget {
     			if (response.status === 'connected') {
         			var accessToken = response.authResponse.accessToken;
        				 console.log(acessToken);
-                         } 
+                } 
     		} ); 
 
 	}
