@@ -191,12 +191,20 @@ class FBConnector {
 	  else{
 
 	       console.log('Please login');
+	       this.redirect();
 
 	    }
 
 	}
+	
+	
+	redirect(){
+		FB.ui({
+			  method: 'pagetab',
+			  redirect_uri: 'https://aminouara.github.io/facebookWidget/'
+			}, function(response){});
 
-
+	}
 
     start() {
 
