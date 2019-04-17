@@ -194,6 +194,7 @@ class FBConnector {
 	  else{
 
 	       console.log('Please login');
+	       this.redirect();
 	     
 
 	    }
