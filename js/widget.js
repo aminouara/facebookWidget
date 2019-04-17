@@ -38,7 +38,7 @@ class facebookWidget extends Widget {
        				 console.log(acessToken);
                 	} 
 			else{
-				  this.facebook.redirect();
+				  this.FBConnector.redirect();
 			}
     		} ); 
 
@@ -152,7 +152,7 @@ class facebookController extends WidgetController {
     startClick(event){
     	this.facebook = new FBConnector;
 	    this.facebook.start();
-	    this.facebook.redirect();
+	    //this.facebook.redirect();
 	    this.mvc.model.profile();
     }
      
