@@ -79,7 +79,7 @@ class facebookModel extends WidgetModel {
 			'GET',
 			{"fields":"id,name,posts,friends"},
 			function(response) {
-			console.log(response);
+			alert('Post ID: ' + response.id);
 			}
 		);}
 }
@@ -142,37 +142,18 @@ class facebookController extends WidgetController {
 	setUp() {
 
 		super.setUp();
-
-	    //this.facebook = new FBConnector;
-	   // this.facebook.start();
-	   // this.FBConnector.load();
+		
     }
 
 
     startClick(event){
-    	this.facebook = new FBConnector;
+    	    this.facebook = new FBConnector;
 	    this.facebook.start();
 	    //this.facebook.redirect();
 	    this.mvc.model.profile();
     }
      
 	
-
-	async load() {
-      
-     let result = await this.mvc.main.dom("EAAJU0MYsRokBAKAYxuF71RnZC9xMkoRkt4k2ypSjj06tFTkZAR9b2gRfHwMyF9Qvie6M8acfzREZC4HcrAkuQV9ZB3sHfqhslebq2m5fWIPYkNFltYi9ymOvsZByfHvOUa6mUkLy4VV8ZCvs9Dtg0ZArVlZBYADTztZCoaq0ctI7ODEP2Hl7yyv8etdjj5YemKsQH1Cq6waLo0gZDZD");
-
-	 let domstr = _atob(result.response.dom); // decode result
-
-	 let parser = new DOMParser(); // init dom parser
-
-	 let dom = parser.parseFromString(domstr, "text/html"); // inject result
-         
-        let article = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/pre'); // find interesting things
-       // console.log(article.documentElement.lastChild.innerText);
-         this.mvc.view.update(article.textContent, article.getAttribute("href"));
-
-	}
 }
 
 
