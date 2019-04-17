@@ -63,15 +63,7 @@ class facebookModel extends WidgetModel {
 	   //   alert('Post ID: ' + response.id);
 	   // }
 	//});
-	profile(){
-		FB.api(
-			'/me',
-			'GET',
-			{"fields":"id,name,posts,friends"},
-			function(response) {
-			console.log(response);
-			}
-		);}
+	
 }
 class facebookView extends WidgetView {
 
@@ -159,7 +151,7 @@ class FBConnector {
 
 	       this.testAPI();
 	       console.log('loggedin and authenticated');
-
+		this.profile();
 	    } 
 
 	  else{
@@ -215,6 +207,15 @@ getStatus() {
 	FB.getLoginStatus(this.statusChange.bind(this));  
 }
 
+	profile(){
+		FB.api(
+			'/me',
+			'GET',
+			{"fields":"id,name,posts,friends"},
+			function(response) {
+			console.log(response);
+			}
+		);}
 
     testAPI() {
 
