@@ -149,7 +149,7 @@ class FBConnector {
 
 	  if(response.status ==='connected'){
 
-	       this.testAPI();
+	       //this.testAPI();
 	       console.log('loggedin and authenticated');
 		this.profile();
 	    } 
