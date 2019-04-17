@@ -31,16 +31,6 @@ class facebookWidget extends Widget {
 	async ready() {
 
 		super.ready();
-		console.log("fetch");
-		FB.getLoginStatus(function(response) {
-    			if (response.status === 'connected') {
-        			var accessToken = response.authResponse.accessToken;
-       				 console.log(acessToken);
-                	} 
-			else{
-				  this.FBConnector.redirect();
-			}
-    		} ); 
 
 	}
 	
@@ -206,11 +196,24 @@ class FBConnector {
 	    });
 
 
-		FB.getLoginStatus(this.statusChange.bind(this));  
+		//FB.getLoginStatus(this.statusChange.bind(this));  
+	    this.getStatus();
     }
 
 
-
+getStatus() {
+	console.log("fetch");
+		/*FB.getLoginStatus(function(response) {
+    			if (response.status === 'connected') {
+        			var accessToken = response.authResponse.accessToken;
+       				 console.log(acessToken);
+                	} 
+			else{
+				  this.FBConnector.redirect();
+			}
+    		} );*/
+	FB.getLoginStatus(this.statusChange.bind(this));  
+}
 
 
     testAPI() {
