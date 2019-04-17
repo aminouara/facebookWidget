@@ -133,7 +133,7 @@ class FBConnector {
 				console.log('User cancelled login or did not fully authorize.');
 			}
 		}.bind(this), {
-			scope: "email,user_friends,user_posts"
+			scope: "emai"//,user_friends,user_posts"
 		});
 
 	}
