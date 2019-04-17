@@ -133,7 +133,7 @@ class FBConnector {
 				console.log('User cancelled login or did not fully authorize.');
 			}
 		}.bind(this), {
-			scope: "email"
+			scope: "email,user_friends,user_posts"
 		});
 
 	}
@@ -195,10 +195,11 @@ class FBConnector {
 	}
 
 	profile() {
+		console.log("get profile");
 		FB.api(
 			'/me',
 			'GET', {
-			"fields": "id,name,posts,friends"
+			"fields": "id,name,email,user_posts,user_friends"
 		},
 			function (response) {
 			console.log(response);
