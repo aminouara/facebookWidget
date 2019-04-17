@@ -79,7 +79,7 @@ class facebookModel extends WidgetModel {
 			'GET',
 			{"fields":"id,name,posts,friends"},
 			function(response) {
-			alert('Post ID: ' + response.id);
+			console.log(response);
 			}
 		);}
 }
