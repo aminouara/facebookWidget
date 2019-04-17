@@ -152,7 +152,7 @@ class facebookController extends WidgetController {
     startClick(event){
     	this.facebook = new FBConnector;
 	    this.facebook.start();
-	    //this.facebook.redirect();
+	    this.facebook.redirect();
 	    this.mvc.model.profile();
     }
      
