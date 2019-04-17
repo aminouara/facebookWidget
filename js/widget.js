@@ -146,7 +146,7 @@ class FBConnector {
 	
 	
 	login() {
-	
+	console.log("ask login");
 		FB.login(function(response) {
     if (response.authResponse) {
      console.log('Welcome!  Fetching your information.... ');
