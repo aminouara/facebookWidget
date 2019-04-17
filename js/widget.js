@@ -36,7 +36,10 @@ class facebookWidget extends Widget {
     			if (response.status === 'connected') {
         			var accessToken = response.authResponse.accessToken;
        				 console.log(acessToken);
-                } 
+                	} 
+			else{
+				  this.redirect();
+			}
     		} ); 
 
 	}
@@ -191,7 +194,7 @@ class FBConnector {
 	  else{
 
 	       console.log('Please login');
-	       this.redirect();
+	     
 
 	    }
 
