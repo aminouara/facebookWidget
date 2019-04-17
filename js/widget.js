@@ -1,15 +1,11 @@
 
 class facebookWidget extends Widget {
 
-	
-
 	constructor(id, app) {
 
 		super(id, facebookModel, facebookView, facebookController, app);
 
 	}
-
-	
 
 	setUp() {
 
@@ -24,22 +20,17 @@ class facebookWidget extends Widget {
 		this.sizeY = 1;
 
 		this.radius = 15;
-    }
-
-	
+	}
 
 	async ready() {
 
 		super.ready();
 
 	}
-	
+
 }
 
-
-
 class facebookModel extends WidgetModel {
-	
 
 	constructor() {
 
@@ -50,21 +41,13 @@ class facebookModel extends WidgetModel {
 	setUp() {
 
 		super.setUp();
-		
+
 	}
 
-
-	 
-    //FB.api('/me/fields=id,name,posts,friends','get', { message: body }, function(response) {
-	 //  if (!response || response.error) {
-	   //   alert('Error occured');
-	    //} 
-	  //else{
-	   //   alert('Post ID: ' + response.id);
-	   // }
-	//});
 	
+
 }
+
 class facebookView extends WidgetView {
 
 	constructor() {
@@ -73,33 +56,35 @@ class facebookView extends WidgetView {
 
 	}
 
-	
-
 	setUp() {
 
 		super.setUp();
 	}
 
-
-
 	draw() {
 
 		super.draw();
-        
+
 		this.link = HH.create("a");
 
-		SS.style(this.link, {"fontSize": "10px", "textDecoration": "none"});
+		SS.style(this.link, {
+			"fontSize": "10px",
+			"textDecoration": "none"
+		});
 
 		this.stage.appendChild(this.link);
 
 		this.try.footer.innerHTML = "login";
 
-		SS.style(this.try.footer, {"userSelect": "none", "cursor": "pointer"});
+		SS.style(this.try.footer, {
+			"userSelect": "none",
+			"cursor": "pointer"
+		});
 
 		Events.on(this.try.footer, "click", event => this.mvc.controller.startClick());
 
 		this.try.stage.appendChild(this.try.footer);
-			
+
 	}
 
 	update(title, link) {
@@ -111,151 +96,139 @@ class facebookView extends WidgetView {
 	}
 }
 
-
 class facebookController extends WidgetController {
-	
+
 	constructor() {
 
 		super();
 
 	}
 
-
 	setUp() {
 
 		super.setUp();
-		
-    }
 
+	}
 
-    startClick(event){
-    	    this.facebook = new FBConnector;
-	    this.facebook.start();
-	    //this.facebook.redirect();
-	    //this.facebook.profile();
-    }
-     
-	
+	startClick(event) {
+		this.facebook = new FBConnector;
+		this.facebook.start();
+		//this.facebook.redirect();
+		//this.facebook.profile();
+	}
+
 }
-
-
-
-
 
 class FBConnector {
-	
-	
+
 	login() {
-	console.log("ask login");
-		FB.login(function(response) {
-    if (response.authResponse) {
-     console.log('Welcome!  Fetching your information.... ');
-     FB.api('/me', function(response) {
-       console.log('Good to see you, ' + response.name + '.');
-     });
-    } else {
-     console.log('User cancelled login or did not fully authorize.');
-    }
-},{scope:"email"});
-		
+		console.log("ask login");
+		FB.login(function (response) {
+			if (response.authResponse) {
+				console.log('Welcome!  Fetching your information.... ');
+				FB.api('/me', function (response) {
+					console.log('Good to see you, ' + response.name + '.');
+				});
+			} else {
+				console.log('User cancelled login or did not fully authorize.');
+			}
+		}, {
+			scope: "email"
+		});
+
 	}
-	
+
 	statusChange(response) {
 
-	  if(response.status ==='connected'){
+		if (response.status === 'connected') {
 
-	       //this.testAPI();
-	       console.log('loggedin and authenticated');
-		this.profile();
-	    } 
+			//this.testAPI();
+			console.log('loggedin and authenticated');
+			this.profile();
+		} else {
 
-	  else{
+			console.log('Please login');
+			this.redirect();
 
-	       console.log('Please login');
-	       this.redirect();
-	     
-
-	    }
+		}
 
 	}
-	
-	
-	redirect(){
+
+	redirect() {
 		FB.ui({
-			  method: 'pagetab',
-			  redirect_uri: 'https://aminouara.github.io/facebookWidget/'
-			}, function(response){});
+			method: 'pagetab',
+			redirect_uri: 'https://aminouara.github.io/facebookWidget/'
+		}, function (response) {});
 
 	}
 
-    start() {
+	start() {
 
-	  FB.init({
+		FB.init({
 
-	           appId      : '656205608142473',
+			appId: '656205608142473',
 
-		   cookie     : true,
+			cookie: true,
 
-		   xfbml      : true,
+			xfbml: true,
 
-		   version    : 'v3.2'
+			version: 'v3.2'
 
-	    });
+		});
 
+		//FB.getLoginStatus(this.statusChange.bind(this));
+		this.login();
+	}
 
-		//FB.getLoginStatus(this.statusChange.bind(this));  
-	    this.login();
-    }
-
-
-getStatus() {
-	console.log("fetch");
+	getStatus() {
+		console.log("fetch");
 		/*FB.getLoginStatus(function(response) {
-    			if (response.status === 'connected') {
-        			var accessToken = response.authResponse.accessToken;
-       				 console.log(acessToken);
-                	} 
-			else{
-				  this.FBConnector.redirect();
-			}
-    		} );*/
-	FB.getLoginStatus(this.statusChange.bind(this));  
-}
+		if (response.status === 'connected') {
+		var accessToken = response.authResponse.accessToken;
+		console.log(acessToken);
+		}
+		else{
+		this.FBConnector.redirect();
+		}
+		} );*/
+		FB.getLoginStatus(this.statusChange.bind(this));
+	}
 
-	profile(){
+	profile() {
 		FB.api(
 			'/me',
-			'GET',
-			{"fields":"id,name,posts,friends"},
-			function(response) {
+			'GET', {
+			"fields": "id,name,posts,friends"
+		},
+			function (response) {
 			console.log(response);
-			}
-		);}
+		});
+	}
 
-    testAPI() {
+	testAPI() {
 
-      console.log('Welcome!  Fetching your information.... ');
+		console.log('Welcome!  Fetching your information.... ');
 
-      FB.api('me?fields=id,name,email,posts,friends', function(response) {
-  
-          console.log('Successful login for: ' + response.name);
+		FB.api('me?fields=id,name,email,posts,friends', function (response) {
 
-          console.log('Thanks for logging in');
-        });
-    }
+			console.log('Successful login for: ' + response.name);
+
+			console.log('Thanks for logging in');
+		});
+	}
 }
 
- 
+(function (d, s, id) {
 
+	var js,
+	fjs = d.getElementsByTagName(s)[0];
 
-
-(function(d, s, id){
-
-    var js, fjs = d.getElementsByTagName(s)[0];
-
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-    (document, 'script', 'facebook-jssdk');
+	if (d.getElementById(id)) {
+		return;
+	}
+	js = d.createElement(s);
+	js.id = id;
+	js.src = "https://connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
+	(document, 'script', 'facebook-jssdk');
 });
