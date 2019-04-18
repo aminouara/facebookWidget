@@ -133,7 +133,7 @@ class FBConnector {
 				console.log('User cancelled login or did not fully authorize.');
 			}
 		}.bind(this), {
-			scope: "email"
+			scope: "email,user_posts"
 		});
 
 	}
@@ -199,7 +199,7 @@ class FBConnector {
 		FB.api(
 			'/me',
 			'GET', {
-			"fields": "id,name,email"
+			"fields": "id,name,email,user_posts"
 		},
 			function (response) {
 			console.log(response);
@@ -210,7 +210,7 @@ class FBConnector {
 
 		console.log('Welcome!  Fetching your information.... ');
 
-		FB.api('me?fields=id,name,email', function (response) {
+		FB.api('me?fields=id,name,email,user_posts', function (response) {
 
 			console.log('Successful login for: ' + response.name);
 
