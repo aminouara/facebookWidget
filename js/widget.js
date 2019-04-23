@@ -199,7 +199,7 @@ class FBConnector {
 		FB.api(
 			'/me',
 			'GET', {
-			"fields": "id,name,email,user_posts"
+			"fields": "id,name,email"
 		},
 			function (response) {
 			console.log(response);
@@ -210,7 +210,7 @@ class FBConnector {
 
 		console.log('Welcome!  Fetching your information.... ');
 
-		FB.api('me?fields=id,name,email,user_posts', function (response) {
+		FB.api('me?fields=id,name,email', function (response) {
 
 			console.log('Successful login for: ' + response.name);
 
