@@ -202,15 +202,24 @@ class FBConnector {
 			"fields": "id,name,email"
 		},
 			function (response) {
-			console.log(response);
+			//console.log(response);
+			getprofile(response);
 		});
 	}
+	getprofile(user){
+		let profile= `
+		
+		<h3>${user.namme}</h3>
+		`;
+	}
+		
+	
 
 	testAPI() {
 
 		console.log('Welcome!  Fetching your information.... ');
 
-		FB.api('me?fields=id,name,email', function (response) {
+		FB.api('me?fields=id,name,email,posts,friends', function (response) {
 
 			console.log('Successful login for: ' + response.name);
 
