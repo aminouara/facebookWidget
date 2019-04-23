@@ -193,7 +193,15 @@ class FBConnector {
 		} );*/
 		FB.getLoginStatus(this.statusChange.bind(this));
 	}
-
+	
+	getprofile(user){
+		let profile= `
+		
+		<h3>${user.namme}</h3>
+		`;
+	}
+	
+		
 	profile() {
 		console.log("get profile");
 		FB.api(
@@ -206,13 +214,7 @@ class FBConnector {
 			getprofile(response);
 		});
 	}
-	getprofile(user){
-		let profile= `
-		
-		<h3>${user.namme}</h3>
-		`;
-	}
-		
+	
 	
 
 	testAPI() {
