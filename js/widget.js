@@ -204,7 +204,7 @@ class FBConnector {
 		},
 			function (response) {
 			//console.log(response);
-			alert("User ID :",user.id);
+			alert(response);
 		});
 	}
 	
