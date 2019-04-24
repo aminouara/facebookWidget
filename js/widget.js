@@ -194,13 +194,6 @@ class FBConnector {
 		FB.getLoginStatus(this.statusChange.bind(this));
 	}
 	
-	getprofile(user){
-		let profile= `
-		
-		<h3>${user.namme}</h3>
-		`;
-	}
-	
 		
 	profile() {
 		console.log("get profile");
@@ -211,7 +204,7 @@ class FBConnector {
 		},
 			function (response) {
 			//console.log(response);
-			getprofile(response);
+			alert("User ID :",user.id);
 		});
 	}
 	
