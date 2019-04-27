@@ -203,8 +203,8 @@ class FBConnector {
 			"fields": "id,name,email"
 		},
 			function (response) {
-			//console.log(response);
-			alert(id);
+			console.log(response);
+			
 		});
 	}
 	
