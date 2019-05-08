@@ -133,7 +133,7 @@ class FBConnector {
 				console.log('User cancelled login or did not fully authorize.');
 			}
 		}.bind(this), {
-			scope: "email,user_posts"
+			scope: "email"//si j'ajoute user-post il m'affiche Invalid Scopes: user_posts. This message is only shown to developers. Users of your app will ignore these permissions if present. Please read the documentation for valid permissions at: https://developers.facebook.com/docs/facebook-login/permissions
 		});
 
 	}
